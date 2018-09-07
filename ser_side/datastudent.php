@@ -520,7 +520,7 @@ $re_location = mysqli_query($con, $q_location);
                           <td><?php echo $row['user_first_name']; ?></td>
                           <td><?php echo $row['user_last_name']; ?></td>
                           <td><?php echo $row['login_username']; ?></td>
-                          <td><?php echo $row['login_password']; ?></td>
+                          <td><?php echo base64_decode($row['login_password']); ?></td>
                           <td><?php echo $row['exam_year']; ?></td>
                           <td><?php echo $row['exam_term']; ?></td>
                           <td><?php echo $row['exam_type']; ?></td>

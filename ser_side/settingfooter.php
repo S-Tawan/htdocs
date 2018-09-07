@@ -77,7 +77,7 @@ $_SESSION['counter_footer']=0;
 
                         <br> <h2 class="text-center">ตั้งค่าการแสดงผลหน้าเว็บ</h2>
                         <p> ปีการศึกษาที่แสดง : </p><input type="text" name="year" value="<?php echo $row['web_year'] ?>">
-                        <p> ภาคการศึกษาที่แดง : </p><input type="text" name="term" value="<?php echo $row['web_term'] ?>">
+                        <p> ภาคการศึกษาที่แสดง : </p><input type="text" name="term" value="<?php echo $row['web_term'] ?>">
                         </div>
                         <div class="container"><br><br><br><br><button class="form-control btn btn-success btn-lg btn-block"   type="submit" name="gogogo">Upload</button></div>
                     </div>

@@ -26,16 +26,17 @@ $result = mysqli_query($con, $q);
 
 
 
-$head = '<div style="text-align:center; font-weight: bold; font-size: 12pt">
-<span>รายชื่อนักศึกษาสอบ '.$type.' ภาคเรียนที่ '.$term.'/'.$year.'</span><br><span>สำนักวิชาการทั่วไปและนวัตกรรมการเรียนรู้อิเล็กทรอนิกส์ : มหาวิทลัยราชภัฎสวนสุนันทา</span><br><span>วันที่ '.$exam_date.' เวลา '.$exam_time.' น. ห้อง '.$exam_location.'</span>
+$head = '<div style="text-align:center; font-weight: bold; font-size: 14pt">
+<span>รายชื่อนักศึกษาสอบ '.$type.' ภาคเรียนที่ '.$term.'/'.$year.'</span><br><span>สำนักวิชาการศึกษาทั่วไปและนวัตกรรมการเรียนรู้อิเล็กทรอนิกส์ : มหาวิทยาลัยราชภัฎสวนสุนันทา</span><br><span>วันที่ '.$exam_date.' เวลา '.$exam_time.' น. ห้อง '.$exam_location.'</span>
 </div>';
 $footer = '</tbody>
-</table><br><br>
+</table><br>
 <div style="text-align:right;">
 <span>กรรมการคุมสอบ...................................................................................................</span><br>
 <span>กรรมการคุมสอบ...................................................................................................</span><br>
+<span>กรรมการคุมสอบ...................................................................................................</span><br>
 <span>จำนวนนักศึกษาที่เข้าสอบ.................................................................................................คน</span><br>
-<span>จำนวนนักศึกษาที่ขาดสอบ.................................................................................................คน</span><br>
+<span>จำนวนนักศึกษาที่ขาดสอบ.................................................................................................คน</span>
 
 </div>
 </div>';
@@ -47,7 +48,7 @@ table,th,td{
     margin-top:1pt;
     margin-button:1pt;
     padding: 2pt;
-    font-weight: bold;
+   
 }
 table.layout {
     text-align:center;
@@ -88,12 +89,12 @@ $tablehead = '
 require_once __DIR__ . '/vendor/autoload.php';
 
 $mpdf = new \Mpdf\Mpdf([
-    'default_font_size' => 8.5,
+    'default_font_size' => 11,
     'default_font' => 'sarabun',
     "sarabun" => 'B',
     'format' => 'A4',
-    'margin_left' => 8,
-    'margin_right' => 8,
+    'margin_left' => 1,
+    'margin_right' => 1,
     'mode' => 'utf-8',
     // 'orientation' => 'L'
 ]);
@@ -113,10 +114,11 @@ while ($row = mysqli_fetch_array($result)) {
     $time = $row['exam_time'];
     $location = $row['exam_location'];
     $seat = $row['exam_seat'];
-    $q_sub = "SELECT * FROM `subject`  WHERE sub_id = '$sub' ";
+    $q_sub = "SELECT `id_name` FROM `subject`  WHERE sub_id = '$sub' ";
     $re_sub = mysqli_query($con, $q_sub);
     $sub_row = mysqli_fetch_array($re_sub);
     $sub_name = $sub_row['id_name'];
+	//$sub_name =substr($sub_name,5,40);
 
     $tablebody = ' <tr>
         <td style="text-align:center"><p>' . $seat . '</p></td>
@@ -125,7 +127,7 @@ while ($row = mysqli_fetch_array($result)) {
         <td style="text-align:center"><p>' . $sub .' '.$sub_name. '</p></td>
         <td style="text-align:center"><p>' . $date . '</p></td>
         <td style="text-align:center"><p>' . $time . '</p></td>
-        <td style="text-align:center"><p>' . $location . '</p></td>
+        <td style="text-align:center"><p>' . substr($location,0,5) . '</p></td>
         <td ></td>
        </tr>';
     $mpdf->WriteHTML($tablebody);

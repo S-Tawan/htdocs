@@ -33,8 +33,8 @@
       $_SESSION['import_success'] = 2;
 
     }
-    header("Location: importstudentinfo.php ");
-//header("Location: main.php");
+    header("Location: update_student_csv.php?id='(($end-$start)+1)'");
+    //header("Location: main.php");
   fclose($handle);
   }
  ?>

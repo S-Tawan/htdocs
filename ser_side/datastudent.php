@@ -378,7 +378,7 @@ $re_location = mysqli_query($con, $q_location);
                                               <p>นามสกุล : </p><input class="form-control" type="text" name="lname" value="<?php echo $row['user_last_name'] ?>">
 
                                               <p>Username : </p><input class="form-control" type="text" name="username" value="<?php echo $row['login_username'] ?>">
-                                              <p>Password : </p><input class="form-control" type="text" name="password" value="<?php echo $row['login_password'] ?>">
+                                              <p>Password : </p><input class="form-control" type="text" name="password" value="<?php echo base64_decode($row['login_password']) ?>">
                                               <br>
                                             </div>
                                             <div class="form-group" style="margin-left: 20px; text-align: left">

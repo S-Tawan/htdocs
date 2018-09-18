@@ -8,7 +8,7 @@
 
   $sql = "SELECT * FROM student_table WHERE login_username=? AND login_password=?";
   $stmt = mysqli_prepare($con,$sql);
-  mysqli_stmt_bind_param($stmt,"ss",$login_id,base64_encode($login_pw));
+  mysqli_stmt_bind_param($stmt,"ss",$login_id,$login_pw);
   mysqli_execute($stmt);
   $result_user = mysqli_stmt_get_result($stmt);
   $_SESSION['status'] = 0; //online

@@ -27,7 +27,7 @@ $result = mysqli_query($con, $q);
 
 
 $head = '<div style="text-align:center; font-weight: bold; font-size: 14pt">
-<span>รายชื่อนักศึกษาสอบ '.$type.' ภาคเรียนที่ '.$term.'/'.$year.'</span><br><span>สำนักวิชาการศึกษาทั่วไปและนวัตกรรมการเรียนรู้อิเล็กทรอนิกส์ : มหาวิทยาลัยราชภัฎสวนสุนันทา</span><br><span>วันที่ '.$exam_date.' เวลา '.$exam_time.' น. ห้อง '.$exam_location.'</span>
+<span>รายชื่อนักศึกษาสอบ '.$type.' ภาคเรียนที่ '.$term.'/'.$year.'</span><br><span>สำนักวิชาการศึกษาทั่วไปและนวัตกรรมการเรียนรู้อิเล็กทรอนิกส์ : มหาวิทยาลัยราชภัฏสวนสุนันทา</span><br><span>วันที่ '.$exam_date.' เวลา '.$exam_time.' น. ห้อง '.$exam_location.'</span>
 </div>';
 $footer = '</tbody>
 </table><br>
